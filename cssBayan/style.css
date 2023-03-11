@@ -1,14 +1,13 @@
 body {
     font-size: 16px;
     line-height: 1.5;
-    background-color: #DEFCF9;
+    background-color: #fff;
 }
 *,
 *:before,
 *:after {
     box-sizing: border-box;
 }
-
 p {
     margin: 5px;
 }
@@ -17,26 +16,51 @@ p {
     max-width: 500px;
 }
 .bayan__item {
-    border: 2px solid #cca8e9;
-    cursor: pointer;
+    border: 1px solid #fff;
+    margin-bottom: 5px;
+    box-shadow: 0 3px 10px -2px rgba(0,0,0,0.2);
 }
 .bayan__title {
+    position: relative;
     display: block;
     padding: 15px;
-    transition: .3s ease-in-out;
+    cursor: pointer;
+
 }
-.bayan__title:hover {
-    background-color: #cca8e9;
+.icon-circle-down:before {
+    content: "\ea43";
+    position: absolute;
+    top: 35%;
+    right: 5%;
+}
+.bayan__title:hover+.bayan__description {
+    height: 100%;
+    transition: all 2s;
+    /*background-color: #defcf9;*/
 }
 .bayan__input {
     position: absolute;
     width: 0;
     height: 0;
 }
+.bayan__input:checked~.bayan__description{
+    height: auto;
+    overflow: visible;
+    transition: all .6s;
+    animation-name: dropdown;
+}
+.bayan__input:checked+.icon-circle-down:before{
+    transform: rotate(180deg);
+    transition: all .6s;
+}
 .bayan__description{
-    /*display: none;*/
+    height: 0;
+    overflow: hidden;
+    background-color: #fff;
     font-size: 14px;
-    padding: 15px;
+    padding: 0 15px;
+    transition: all .3s;
+    box-sizing: border-box;
 }
 .bayan__image-box {
     position: relative;
@@ -50,5 +74,13 @@ p {
     bottom: 0;
     width: 100%;
     height: 100%;
+    padding: 25px;
     object-fit: cover;
+}
+
+@media (max-width: 320px) {
+    .container {
+        width: 100%;
+        margin: 5px 10px;
+    }
 }
