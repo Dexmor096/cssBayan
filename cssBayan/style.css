@@ -12,16 +12,19 @@ body {
     width: 0;
 }
 p {
-    margin: 5px;
+    margin: 0.5rem;
 }
 .container {
     width: 100%;
     margin: 0.5rem 0;
 }
-.bayan__item {
-    border: 1px solid #fff;
-    margin-bottom: 5px;
+.bayan {
+    border-radius: 7%;
+    color: #000000;
     box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15), -6px -6px 10px -1px rgba(255,255,255,0.7);
+}
+.bayan__item {
+    margin-bottom: 0.5rem;
 }
 .bayan__title {
     position: relative;
@@ -29,6 +32,8 @@ p {
     border: 1px solid #fff;
     padding: 1rem;
     cursor: pointer;
+    font-weight: 500;
+    background-color: #B9BBDF;
 }
 .icon-circle-down:before {
     content: "\ea43";
@@ -36,32 +41,33 @@ p {
     top: 35%;
     right: 5%;
 }
-.bayan__title:hover + label+ .bayan__description {
-    max-height: 100%;
+.bayan__title:hover + .bayan__description {
     background-color: #f0f5f9;
 }
+
 .bayan__input {
-    position: absolute;
-    width: 0;
-    height: 0;
+    display: none;
 }
 .bayan__input:checked~.bayan__description{
-    max-height: 100%;
-    overflow: visible;
+    max-height: 100vh;
     background-color: #f0f5f9;
-    padding: 1rem 1rem 2rem;
+    transition: max-height .5s;
 }
 .bayan__input:checked+.icon-circle-down:before{
     transform: rotate(180deg);
     transition: all .6s;
 }
+.bayan__input:checked~.bayan__title {
+    background-color: #f0f5f9;
+}
 .bayan__description{
     max-height: 0;
     overflow: hidden;
-    background-color: #f0f5f9;
+    background-color: #B9BBDF;
+    cursor: pointer;
     font-size: 14px;
     padding: 0 1rem;
-    transition: padding 1s;
+    transition: max-height .5s;
 }
 .bayan__image-box {
     position: relative;
@@ -87,19 +93,41 @@ p {
 @media (min-width: 820px) {
     body {
         font-size: 18px;
+        font-family: Roboto;
     }
     .container {
         margin: 1rem auto;
-        max-width: 500px;
+        max-width: 30%;
     }
 }
 /*desktop*/
 @media (min-width: 1820px) {
     body {
         font-size: 16px;
+        font-weight: 800;
     }
     .container {
         margin: 1.5rem auto;
-        max-width: 500px;
+        max-width: 30%;
+    }
+    .icon-circle-down:before {
+        display: none;
+    }
+    .bayan__item:hover .bayan__description {
+        max-height: 100vh;
+        transition: max-height .3s;
+        background-color: #f0f5f9;
+     }
+    .bayan__item:hover .bayan__title{
+        background-color: #f0f5f9;
+    }
+    .bayan:hover .icon-circle-down:before{
+        content: "\ea43";
+        display: block;
+        transform: rotate(180deg);
+        transition: all .6s;
+    }
+    .bayan:hover .bayan__title {
+        color: #068394;
     }
 }
