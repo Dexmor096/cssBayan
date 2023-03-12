@@ -17,9 +17,7 @@ p {
 .container {
     width: 100%;
     margin: 0.5rem 0;
-
 }
-
 .bayan__item {
     border: 1px solid #fff;
     margin-bottom: 5px;
@@ -41,7 +39,6 @@ p {
 .bayan__title:hover + label+ .bayan__description {
     max-height: 100%;
     background-color: #f0f5f9;
-
 }
 .bayan__input {
     position: absolute;
